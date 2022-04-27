@@ -1,0 +1,19 @@
+DROP DATABASE IF EXISTS cine;
+CREATE DATABASE cine;
+USE cine;
+
+CREATE TABLE peliculas(id_pelicula INT AUTO_INCREMENT PRIMARY KEY,
+nombre NVARCHAR(100),
+calificacion_edad INT DEFAULT 18
+);
+
+CREATE TABLE salas(id_pelicula INT AUTO_INCREMENT PRIMARY KEY,
+nombre NVARCHAR(100),
+pelicula INT,
+KEY (pelicula),
+FOREIGN KEY (pelicula) REFERENCES peliculas(id_pelicula)
+ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+SHOW COLUMNS FROM peliculas;
+SHOW COLUMNS FROM salas;
